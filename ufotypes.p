@@ -77,7 +77,6 @@ fof(semirigid, axiom, (
 					~antirigid(T) & ~rigid(T)))
 )).
 
-
 % type_s are either rigid, anti-rigid or semi-rigid
 %fof(completenessRigidity, conjecture, (
 %	![T]: (type_(T)<=>(rigid(T)|semirigid(T)|antirigid(T))) 
@@ -85,9 +84,7 @@ fof(semirigid, axiom, (
 
 % theorem
 %fof(disjointnessRigidity, conjecture, (
-%	~?[X]: (rigid(X)&antirigid(X)) &
-%	~?[X]: (rigid(X)&semirigid(X)) &
-%	~?[X]: (semirigid(X)&antirigid(X)) 
+%	~?[X]: ((rigid(X)&antirigid(X)) | (rigid(X)&semirigid(X)) | (semirigid(X)&antirigid(X))) 
 %)).
 
 % theorem
@@ -165,7 +162,6 @@ fof(dnonsortal, axiom, (
 %	~?[X,Y]: (nonsortal(X)&sortal(Y)&specializes(X,Y))
 %)).
 
-
 % Theorem: nonsortals do not have direct instances, their instances are also instances
 % of a sortal that either: 
 % specializes the nonsortal, or 
@@ -203,12 +199,17 @@ fof(phaseRoleDisjoint, axiom, (
 	~?[T]: (phase(T)&role(T))
 )).
 
-% Categories are those type_s that are rigid and non-sortals
+% Semi rigid sortals are those that are semirigid and sortal
+fof(dsemirigidSortal, axiom, (
+	![T]: (semirigidsortal(T)<=>(semirigid(T)&sortal(T)))
+)).
+
+% Categories are those types that are rigid and non-sortals
 fof(dcategory, axiom, (
 	![T]: (category(T)<=>(rigid(T)&nonsortal(T)))
 )).
 
-% Mixins are those type_s that are semirigid and non-sortals
+% Mixins are those types that are semirigid and non-sortals
 fof(dmixin, axiom, (
 	![T]: (mixin(T)<=>(semirigid(T)&nonsortal(T)))
 )).
@@ -224,7 +225,7 @@ fof(phaseRoleMixinDisjoint, axiom, (
 )).
 
 % Theorem: Leaf categories of UFO taxonomy of types are disjoint
-%fof(leafNodeTheorems, conjecture, (
+%fof(leafNodesTaxonomyTypesDisjoint, conjecture, (
 %	![T]: (kind(T)=>(~subkind(T)&~role(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~category(T)&~mixin(T))) &
 %	![T]: (subkind(T)=>(~kind(T)&~role(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~category(T)&~mixin(T))) &
 %	![T]: (role(T)=>(~kind(T)&~subkind(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~category(T)&~mixin(T))) &
@@ -234,6 +235,12 @@ fof(phaseRoleMixinDisjoint, axiom, (
 %	![T]: (category(T)=>(~kind(T)&~subkind(T)&~role(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~mixin(T))) &
 %	![T]: (mixin(T)=>(~kind(T)&~subkind(T)&~role(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~category(T))) 
 %)).	
+
+% Leaf  Leaf categories of UFO taxonomy of types are complete
+%fof(leafNodesTaxonomyTypesComplete, conjecture, (
+%	![T]: (type_(T)<=>(kind(T)|subkind(T)|role(T)|phase(T)|semirigidsortal(T)|mixin(T)|rolemixin(T)|phasemixin(T)|category(T))) 
+%)).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Concerning the taxonomy of endurant (individuals)
 
@@ -278,7 +285,7 @@ fof(modeQualityDisjoint, axiom, (
 %	![X]: (relator(X)=>(~substantial(X)&~mode(X)&~quality(X))) &
 %	![X]: (mode(X)=>(~substantial(X)&~relator(X)&~quality(X))) &
 %	![X]: (quality(X)=>(~substantial(X)&~relator(X)&~mode(X))) &
-%	![X]: (endurant(X)=>(substantial(X)|relator(X)|mode(X)|quality(X)))
+%	![X]: (endurant(X)<=>(substantial(X)|relator(X)|mode(X)|quality(X)))
 %)).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% Taxonomy of endurant types according to the ontological nature of their instances
@@ -314,7 +321,7 @@ fof(dqualityType, axiom, (
 )).
 
 % Leaf nodes of the taxonomy of endurant types are disjoint 
-%fof(disjointnessEndurantTypes, conjecture, (
+%fof(endurantTypesDisjoint, conjecture, (
 %	![X]: (substantialtype(X)=>(~relatortype(X)&~modetype(X)&~qualitytype(X))) &
 %	![X]: (relatortype(X)=>(~substantialtype(X)&~modetype(X)&~qualitytype(X))) &
 %	![X]: (modetype(X)=>(~substantialtype(X)&~relatortype(X)&~qualitytype(X))) &
@@ -349,11 +356,35 @@ fof(dqualityKind, axiom, (
 %	![X]: ((?[W,K]: ((substantialkind(K)|relatorkind(K)|modekind(K)|qualitykind(K))& iof(X,K,X)))=>endurant(X))
 %)).
 
-% every endurant is instance of one of these kinds 
-fof(everyEndurant, axiom, (
+% every endurant is instance of one of the specific endurant kinds 
+fof(everyEndurantInstantiatesSpecificKind, axiom, (
 	![X]: (endurant(X) => (?[W,K]: ((substantialkind(K)|relatorkind(K)|modekind(K)|qualitykind(K))& iof(X,K,W))))
 )).
 
+% every endurant sortal is either a kinds, subkind, phase, role or semirigid sortal
+%fof(categorizationEndurantSortalsComplete, conjecture, (
+%	![X]: ((enduranttype(X)&sortal(X))=>(substantialkind(X)|relatorkind(X)|modekind(X)|qualitykind(X)|subkind(X)|phase(X)|role(X)|semirigidsortal(X))) 
+%)).
+
+% leaves of the taxonomy of endurant types are disjoint
+%fof(endurantTypesDisjoint, conjecture, (
+%	![T]: (substantialkind(T)=>(~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (subkind(T) => (~substantialkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (relatorkind(T) => (~substantialkind(T)&~subkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (modekind(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (qualitykind(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (category(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (phase(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (mixin(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (role(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~phasemixin(T)&~rolemixin(T))) &
+%	![T]: (phasemixin(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~rolemixin(T))) &
+%	![T]: (rolemixin(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T))) 
+%)).
+
+% endurant types must be either kinds, subkind, phase, role, semirigid sortal, mixin, phasemixin and rolemixin
+%fof(categorizationEndurantTypesComplete, conjecture, (
+%	![X]: (enduranttype(X)=>(substantialkind(X)|relatorkind(X)|modekind(X)|qualitykind(X)|subkind(X)|phase(X)|role(X)|semirigidsortal(X)|category(X)|mixin(X)|phasemixin(X)|rolemixin(X))) 
+%)).
 
 
 %%% Theorems to show that we can omit <<relatorphase>> and <<relatorrole>> as a demonstration
@@ -393,9 +424,6 @@ fof(drelatorRole, axiom, (
 %	![T]: ((nonsortal(T)&enduranttype(T))=>(relatortype(T)|substantialtype(T)|modetype(T)|qualitytype(T)))
 %)).
 
-fof(nosemirigidSortals, axiom, (
-~?[X]: (semirigid(X)&sortal(X))
-)).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -414,15 +442,13 @@ fof(allTheorems, conjecture, (
 	
 	% about ridigity	
 	![T]: (type_(T)<=>(rigid(T)|semirigid(T)|antirigid(T))) &
-	~?[X]: (rigid(X)&antirigid(X)) &
-	~?[X]: (rigid(X)&semirigid(X)) &
-	~?[X]: (semirigid(X)&antirigid(X)) &
+	~?[X]: ((rigid(X)&antirigid(X)) | (rigid(X)&semirigid(X)) | (semirigid(X)&antirigid(X))) &
 	% about taxonomic relations and rigidity
 	~?[X,Y]: (rigid(X)&antirigid(Y)&specializes(X,Y))  &
 	~?[X,Y]: (semirigid(X)&antirigid(Y)&specializes(X,Y))  &
 	
 	% about sortality
-	![K]: (kind(K)=>rigid(K)) &	
+	![T]: (kind(T)=>rigid(T)) &	
 	![T] : (kind(T)=>sortal(T)) &
 	![X,Y] : ( (kind(X)&kind(Y)&~(X=Y)) => (![W]: (world(W) => ~?[Z]:( iof(Z,X,W)&iof(Z,Y,W))))) &
 	% about taxonomic relations and sortality
@@ -433,7 +459,7 @@ fof(allTheorems, conjecture, (
 				((?[S]: (sortal(S)&specializes(S,T)&iof(X,S,W))) |
 				(?[N,S]: (nonsortal(N)&sortal(S)&specializes(S,N)&specializes(T,N)&iof(X,S,W))))) &
 				
-	% about the leaf nodes in the taxonomy of types being disjoint
+	% about the leaf nodes in the taxonomy of types being disjoint and completely partitioning types
 	![T]: (kind(T)=>(~subkind(T)&~role(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~category(T)&~mixin(T))) &
 	![T]: (subkind(T)=>(~kind(T)&~role(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~category(T)&~mixin(T))) &
 	![T]: (role(T)=>(~kind(T)&~subkind(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~category(T)&~mixin(T))) &
@@ -442,14 +468,14 @@ fof(allTheorems, conjecture, (
 	![T]: (phasemixin(T)=>(~kind(T)&~subkind(T)&~role(T)&~phase(T)&~rolemixin(T)&~category(T)&~mixin(T))) &
 	![T]: (category(T)=>(~kind(T)&~subkind(T)&~role(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~mixin(T))) &
 	![T]: (mixin(T)=>(~kind(T)&~subkind(T)&~role(T)&~phase(T)&~rolemixin(T)&~phasemixin(T)&~category(T))) &
-	% they are not a complete partition
+	![T]: (type_(T)<=>(kind(T)|subkind(T)|role(T)|phase(T)|semirigidsortal(T)|mixin(T)|rolemixin(T)|phasemixin(T)|category(T))) &
 	
-	% about the leaf nodes in the taxonomy of endurants being disjoint and complete
+	% about the leaf nodes in the taxonomy of endurants being disjoint and completely partitioning endurant
 	![X]: (substantial(X)=>(~relator(X)&~mode(X)&~quality(X))) &
 	![X]: (relator(X)=>(~substantial(X)&~mode(X)&~quality(X))) &
 	![X]: (mode(X)=>(~substantial(X)&~relator(X)&~quality(X))) &
 	![X]: (quality(X)=>(~substantial(X)&~relator(X)&~mode(X))) &
-	![X]: (endurant(X)=>(substantial(X)|relator(X)|mode(X)|quality(X))) &
+	![X]: (endurant(X)<=>(substantial(X)|relator(X)|mode(X)|quality(X))) &
 	
 	% about the leaf nodes in the taxonomy of endurant types being disjoint
 	![X]: (substantialtype(X)=>(~relatortype(X)&~modetype(X)&~qualitytype(X))) &
@@ -457,21 +483,24 @@ fof(allTheorems, conjecture, (
 	![X]: (modetype(X)=>(~substantialtype(X)&~relatortype(X)&~qualitytype(X))) &
 	![X]: (qualitytype(X)=>(~substantialtype(X)&~relatortype(X)&~modetype(X))) &
 	% they are not a complete partition
-	
-	
+
+	% disjointness of the leaves of the taxonomy of endurant kinds
+	![T]: (substantialkind(T) => (~relatorkind(T)&~modekind(T)&~qualitykind(T))) &
+	![T]: (relatorkind(T) => (~substantialkind(T)&~modekind(T)&~qualitykind(T))) &
+	![T]: (modekind(T) => (~substantialkind(T)&~relatorkind(T)&~qualitykind(T))) &
+	![T]: (qualitykind(T) => (~substantialkind(T)&~relatorkind(T)&~modekind(T))) 	&	
 	% every endurant type that is a kind is one of substantialkind, relatorkind, modekind, qualitykind
-	![T]: ((enduranttype(T)&kind(T))=>(substantialkind(T)|relatorkind(T)|modekind(T)|qualitykind(T))) &
+	![T]: ((enduranttype(T)&kind(T))<=>(substantialkind(T)|relatorkind(T)|modekind(T)|qualitykind(T))) &
+
 	% every endurant sortal specializes one of substantialkind, relatorkind, modekind(K), qualitykind(K)
 	![T]: ((enduranttype(T)&sortal(T))=>(?[K]: ((substantialkind(K)|relatorkind(K)|modekind(K)|qualitykind(K))&(specializes(T,K))))) &
 
-	%%%% the following would fail to be a theorem if we do not ban semirigid sortals
-	![X]: (enduranttype(X)=>(substantialkind(X)|subkind(X)|relatorkind(X)|modekind(X)|qualitykind(X)|category(X)|phase(X)|mixin(X)|role(X)|phasemixin(X)|rolemixin(X))) &
-	![X]: ((enduranttype(X)&sortal(X))=>(substantialkind(X)|relatorkind(X)|modekind(X)|qualitykind(X)|subkind(X)|phase(X)|role(X))) &
+	% every endurant sortal is one of the kinds, subkind, phase, role or semirigid sortal
+	![X]:  ((enduranttype(X)&sortal(X))=>
+	              (substantialkind(X)|relatorkind(X)|modekind(X)|qualitykind(X)|subkind(X)|phase(X)|role(X)|semirigidsortal(X))) &
 
-		
-	%%%%%%%%%%%%%%%%%%%%%%%%
 
-	% leaves of the endurant type taxonomy disjoint
+	% leaves of the taxonomy of endurant types disjoint
 	% pairwise disjointness
 	![T]: (substantialkind(T)=>(~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
 	![T]: (subkind(T) => (~substantialkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
@@ -485,11 +514,11 @@ fof(allTheorems, conjecture, (
 	![T]: (phasemixin(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~rolemixin(T))) &
 	![T]: (rolemixin(T) => (~substantialkind(T)&~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T))) &
 
-	% pairwise disjointness 
-	![T]: (substantialkind(T) => (~relatorkind(T)&~modekind(T)&~qualitykind(T))) &
-	![T]: (relatorkind(T) => (~substantialkind(T)&~modekind(T)&~qualitykind(T))) &
-	![T]: (modekind(T) => (~substantialkind(T)&~relatorkind(T)&~qualitykind(T))) &
-	![T]: (qualitykind(T) => (~substantialkind(T)&~relatorkind(T)&~modekind(T))) 	&
+	% endurant types must be either kinds, subkind, phase, role, semirigid sortal, mixin, phasemixin and rolemixin
+	![X]: (enduranttype(X)=>
+					(substantialkind(X)|relatorkind(X)|modekind(X)|qualitykind(X)|
+					subkind(X)|phase(X)|role(X)|semirigidsortal(X)|category(X)|mixin(X)|phasemixin(X)|rolemixin(X))) & 
+
 	
 	% just a sample to show we can omit specific sorts of relator types
     ![T]: (relatorphase(T) <=> (phase(T) & ?[K]: (relatorkind(K) & specializes(T,K)))) &
