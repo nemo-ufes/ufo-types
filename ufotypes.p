@@ -157,6 +157,11 @@ fof(dnonsortal, axiom, (
 %	~?[X,Y,Z]: (kind(Y)&kind(Z)&~(Y=Z)&specializes(X,Y)&specializes(X,Z))	
 %)).
 
+% a kind cannot specialize a different kind
+%fof(kindCannotSpecializeKind, conjecture, (
+%	~?[X,Y]: (kind(X)&kind(Y)&~(X=X)&specializes(X,Y))	
+%)).
+
 % a non-sortal cannot specialize a sortal
 %fof(nonSortalCantSpecializeSortal, conjecture, (
 %	~?[X,Y]: (nonsortal(X)&sortal(Y)&specializes(X,Y))
@@ -454,6 +459,7 @@ fof(allTheorems, conjecture, (
 	% about taxonomic relations and sortality
 	![X] : (sortal(X)=>?[K]:(kind(K)&specializes(X,K)))  &
 	~?[X,Y,Z]: (kind(Y)&kind(Z)&~(Y=Z)&specializes(X,Y)&specializes(X,Z)) &
+	~?[X,Y]: (kind(X)&kind(Y)&~(X=X)&specializes(X,Y)) &
 	~?[X,Y]: (nonsortal(X)&sortal(Y)&specializes(X,Y))  &	
 	![T,X,W]: ((nonsortal(T) & iof(X,T,W)) =>
 				((?[S]: (sortal(S)&specializes(S,T)&iof(X,S,W))) |
