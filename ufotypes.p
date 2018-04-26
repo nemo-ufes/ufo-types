@@ -371,6 +371,11 @@ fof(everyEndurantInstantiatesSpecificKind, axiom, (
 %	![X]: ((enduranttype(X)&sortal(X))=>(substantialkind(X)|relatorkind(X)|modekind(X)|qualitykind(X)|subkind(X)|phase(X)|role(X)|semirigidsortal(X))) 
 %)).
 
+% every endurant sortal specializes a specific kind
+%fof(endurantSortalsSpecializeSpecificKinds, conjecture, (
+%![T]: ((sortal(T)&(substantialtype(T)|relatortype(T)|modetype(T)|qualitytype(T)))<=>(?[K]: ((substantialkind(K)|relatorkind(K)|modekind(K)|qualitykind(K))&specializes(T,K))))
+%)).
+
 % leaves of the taxonomy of endurant types are disjoint
 %fof(endurantTypesDisjoint, conjecture, (
 %	![T]: (substantialkind(T)=>(~subkind(T)&~relatorkind(T)&~modekind(T)&~qualitykind(T)&~category(T)&~phase(T)&~mixin(T)&~role(T)&~phasemixin(T)&~rolemixin(T))) &
@@ -505,6 +510,8 @@ fof(allTheorems, conjecture, (
 	![X]:  ((enduranttype(X)&sortal(X))=>
 	              (substantialkind(X)|relatorkind(X)|modekind(X)|qualitykind(X)|subkind(X)|phase(X)|role(X)|semirigidsortal(X))) &
 
+	% every endurant sortal specializes a specific kind
+	![T]: ((sortal(T)&(substantialtype(T)|relatortype(T)|modetype(T)|qualitytype(T)))<=>(?[K]: ((substantialkind(K)|relatorkind(K)|modekind(K)|qualitykind(K))&specializes(T,K)))) &
 
 	% leaves of the taxonomy of endurant types disjoint
 	% pairwise disjointness
