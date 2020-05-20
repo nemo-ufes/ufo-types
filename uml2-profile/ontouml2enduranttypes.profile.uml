@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_qyOmQJk4Eeq7vPF5V6OkQA" name="ontouml2enduranttypesprofile" metaclassReference="_I-QgAJk5Eeq7vPF5V6OkQA _JiBZUJnGEeq7vPF5V6OkQA">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Xg5qEJk5Eeq7vPF5V6OkQA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Zw1FUJk5Eeq7vPF5V6OkQA" source="PapyrusVersion">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Zw1FUZk5Eeq7vPF5V6OkQA" key="Version" value="0.0.0"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Zw1FUpk5Eeq7vPF5V6OkQA" key="Comment" value="&lt;undefined>"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Zw1FU5k5Eeq7vPF5V6OkQA" key="Copyright" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Zw1FVJk5Eeq7vPF5V6OkQA" key="Date" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Zw1FVZk5Eeq7vPF5V6OkQA" key="Author" value="&lt;undefined>"/>
+    </eAnnotations>
+    <contents xmi:type="ecore:EPackage" xmi:id="_N-VSEJrCEeqBdPgBOS67lA" name="ontouml2enduranttypesprofile" nsURI="http:///schemas/ontouml2enduranttypesprofile/_N-UrAJrCEeqBdPgBOS67lA/114" nsPrefix="ontouml2enduranttypesprofile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSEZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSEprCEeqBdPgBOS67lA" key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-V5IZrCEeqBdPgBOS67lA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-V5IprCEeqBdPgBOS67lA" key="Version" value="0.2.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-V5I5rCEeqBdPgBOS67lA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-V5JJrCEeqBdPgBOS67lA" key="Copyright" value="João Paulo A. Almeida, Claudenir M. Fonseca, Giancarlo Guizzardo, Tiago P. Sales (2020)&#xA;MIT License"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-V5JZrCEeqBdPgBOS67lA" key="Date" value="2020-05-20"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-V5JprCEeqBdPgBOS67lA" key="Author" value="João Paulo A. Almeida, Claudenir M. Fonseca, Giancarlo Guizzardo, Tiago P. Sales "/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSE5rCEeqBdPgBOS67lA" name="kind" eSuperTypes="_N-VSFprCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSFJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Kp9z4Jk5Eeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSFprCEeqBdPgBOS67lA" name="UltimateSortal" abstract="true" eSuperTypes="_N-VSJ5rCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSF5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_BuC5YJlHEeq7vPF5V6OkQA"/>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSGJrCEeqBdPgBOS67lA" name="ultimateSortalCantSpecializeAnother">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSGZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSGprCEeqBdPgBOS67lA" key="body" value="not base_Class.allParents()->exists(&#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(UltimateSortal).oclIsInvalid()&#xA;)"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSHJrCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSHZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSHprCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSIJrCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSIZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSIprCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSI5rCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSJJrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSJZrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSJ5rCEeqBdPgBOS67lA" name="RigidSortal" abstract="true" eSuperTypes="_N-VSOJrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSKJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_FyR1wJlFEeq7vPF5V6OkQA"/>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSKZrCEeqBdPgBOS67lA" name="rigidSortalCantSpecializeAntiRigid">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSKprCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSK5rCEeqBdPgBOS67lA" key="body" value="not base_Class.allParents()->exists(&#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidSortal).oclIsInvalid() or &#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidNonSortal).oclIsInvalid()&#xA;)"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSLZrCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSLprCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSL5rCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSMZrCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSMprCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSM5rCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSNJrCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSNZrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSNprCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSOJrCEeqBdPgBOS67lA" name="Sortal" abstract="true" eSuperTypes="_N-VSV5rCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSOZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_oJYwMJlCEeq7vPF5V6OkQA"/>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSOprCEeqBdPgBOS67lA" name="sortalMustSpecializeUltimateSortal">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSO5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSPJrCEeqBdPgBOS67lA" key="body" value="self.oclIsKindOf(UltimateSortal) &#xA;or (base_Class.allParents()->exists(&#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(UltimateSortal).oclIsInvalid()&#xA;))"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSPprCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSP5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSQJrCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSQprCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSQ5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSRJrCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSRZrCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSRprCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSR5rCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSSJrCEeqBdPgBOS67lA" name="cantSpecializeMoreThanOneUltimateSortal">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSSZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSSprCEeqBdPgBOS67lA" key="body" value="base_Class.allParents()->select(&#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(UltimateSortal).oclIsInvalid()&#xA;)->size()&lt;=1"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSTJrCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSTZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSTprCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSUJrCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSUZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSUprCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSU5rCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSVJrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSVZrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSV5rCEeqBdPgBOS67lA" name="EndurantClass" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSWJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_6ZjqAJlEEeq7vPF5V6OkQA"/>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSWZrCEeqBdPgBOS67lA" name="onlyOneOntoUMLStereotype">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSWprCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSW5rCEeqBdPgBOS67lA" key="body" value="base_Class.getAppliedStereotypes()->select(&#xA;&#x9;name='kind' or name='relator' or name='mode' or name='quality'&#xA;&#x9;or name='phase' or name='role' or name='subkind' or &#xA;&#x9;name='phaseMixin' or name='roleMixin' or name='category' or name='mixin'&#xA;)->size()=1"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSXZrCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSXprCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSX5rCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSYZrCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSYprCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSY5rCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSZJrCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSZZrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSZprCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_N-VSZ5rCEeqBdPgBOS67lA" name="base_Class" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSaZrCEeqBdPgBOS67lA" name="subkind" eSuperTypes="_N-VSJ5rCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSaprCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_MqedoJk6Eeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSbJrCEeqBdPgBOS67lA" name="NonSortal" abstract="true" eSuperTypes="_N-VSV5rCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSbZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_CPo1cJlFEeq7vPF5V6OkQA"/>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSbprCEeqBdPgBOS67lA" name="nonSortalCantSpecializeSortal">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSb5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VScJrCEeqBdPgBOS67lA" key="body" value="not base_Class.allParents()->exists(&#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(Sortal).oclIsInvalid()&#xA;)"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VScprCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSc5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSdJrCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSdprCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSd5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSeJrCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSeZrCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSeprCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSe5rCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSfJrCEeqBdPgBOS67lA" name="nonSortalMustHaveSortalSpecialization">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSfZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSfprCEeqBdPgBOS67lA" key="body" value="-- there is a sortal that has the non-sortal as parent&#xA;Sortal.allInstances()->exists(&#xA;&#x9;base_Class.allParents()->includes(self.base_Class))&#xA;or&#xA;-- there is a sortal with a parent x that is also parent of the non-sortal&#xA;Sortal.allInstances()->exists(&#xA;&#x9;base_Class.allParents()->exists(x | self.base_Class.allParents()->includes(x))&#xA;&#x9;)"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSgJrCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSgZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSgprCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VShJrCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VShZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VShprCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSh5rCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSiJrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSiZrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSi5rCEeqBdPgBOS67lA" name="relator" eSuperTypes="_N-VSFprCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSjJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_7yN0IJlGEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSjprCEeqBdPgBOS67lA" name="mode" eSuperTypes="_N-VSFprCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSj5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_M17scJlKEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSkZrCEeqBdPgBOS67lA" name="quality" eSuperTypes="_N-VSFprCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSkprCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_PL-WwJlKEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSlJrCEeqBdPgBOS67lA" name="AntiRigidSortal" abstract="true" eSuperTypes="_N-VSOJrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSlZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_rGeA0JlMEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSl5rCEeqBdPgBOS67lA" name="role" eSuperTypes="_N-VSlJrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSmJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_uCo3AJlMEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSmprCEeqBdPgBOS67lA" name="phase" eSuperTypes="_N-VSlJrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSm5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_umzUAJlMEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSnZrCEeqBdPgBOS67lA" name="RigidNonSortal" abstract="true" eSuperTypes="_N-VSbJrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSnprCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3dSMgJlMEeq7vPF5V6OkQA"/>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSn5rCEeqBdPgBOS67lA" name="rigidNonSortalCantSpecializeAntiRigid">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSoJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSoZrCEeqBdPgBOS67lA" key="body" value="not base_Class.allParents()->exists(&#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidSortal).oclIsInvalid() or &#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidNonSortal).oclIsInvalid()&#xA;)"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSo5rCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSpJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSpZrCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSp5rCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSqJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSqZrCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSqprCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSq5rCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSrJrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSrprCEeqBdPgBOS67lA" name="AntiRigidNonSortal" abstract="true" eSuperTypes="_N-VSbJrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSr5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_44C6UJlMEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSsZrCEeqBdPgBOS67lA" name="SemiRigidNonSortal" abstract="true" eSuperTypes="_N-VSbJrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSsprCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="__d83UJlMEeq7vPF5V6OkQA"/>
+        <eOperations xmi:type="ecore:EOperation" xmi:id="_N-VSs5rCEeqBdPgBOS67lA" name="semiRigidCantSpecializeAntiRigid">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VStJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VStZrCEeqBdPgBOS67lA" key="body" value="not base_Class.allParents()->exists(&#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidSortal).oclIsInvalid() or&#xA;&#x9;not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidNonSortal).oclIsInvalid()&#xA;)"/>
+          </eAnnotations>
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSt5rCEeqBdPgBOS67lA" name="diagnostics">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSuJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSuZrCEeqBdPgBOS67lA" key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          </eParameters>
+          <eParameters xmi:type="ecore:EParameter" xmi:id="_N-VSu5rCEeqBdPgBOS67lA" name="context">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSvJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/emf/2002/GenModel">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N-VSvZrCEeqBdPgBOS67lA" key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType xmi:type="ecore:EGenericType" xmi:id="_N-VSvprCEeqBdPgBOS67lA">
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSv5rCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eTypeArguments xmi:type="ecore:EGenericType" xmi:id="_N-VSwJrCEeqBdPgBOS67lA">
+                <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              </eTypeArguments>
+              <eClassifier xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSwprCEeqBdPgBOS67lA" name="category" eSuperTypes="_N-VSnZrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSw5rCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Iqb1AJlNEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSxZrCEeqBdPgBOS67lA" name="mixin" eSuperTypes="_N-VSsZrCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSxprCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LBt1cJlNEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSyJrCEeqBdPgBOS67lA" name="phaseMixin" eSuperTypes="_N-VSrprCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSyZrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Nhse4JlNEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_N-VSy5rCEeqBdPgBOS67lA" name="roleMixin" eSuperTypes="_N-VSrprCEeqBdPgBOS67lA">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N-VSzJrCEeqBdPgBOS67lA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_PLXLYJlNEeq7vPF5V6OkQA"/>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_I-QgAJk5Eeq7vPF5V6OkQA" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_JiBZUJnGEeq7vPF5V6OkQA" alias="Classifier">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Classifier"/>
+  </elementImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_q13wIJk4Eeq7vPF5V6OkQA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_q16MYJk4Eeq7vPF5V6OkQA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Kp9z4Jk5Eeq7vPF5V6OkQA" name="kind">
+    <generalization xmi:type="uml:Generalization" xmi:id="_ThCWsJlDEeq7vPF5V6OkQA" general="_BuC5YJlHEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_MqedoJk6Eeq7vPF5V6OkQA" name="subkind">
+    <generalization xmi:type="uml:Generalization" xmi:id="_S_dToJlDEeq7vPF5V6OkQA" general="_FyR1wJlFEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_oJYwMJlCEeq7vPF5V6OkQA" name="Sortal" isAbstract="true">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_SA36kJk6Eeq7vPF5V6OkQA" name="sortalMustSpecializeUltimateSortal" visibility="package">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_SA6W0Jk6Eeq7vPF5V6OkQA" name="constraintSpec">
+        <language>OCL</language>
+        <body>self.oclIsKindOf(UltimateSortal) 
+or (base_Class.allParents()->exists(
+	not oclAsType(Class).extension_EndurantClass.oclAsType(UltimateSortal).oclIsInvalid()
+))</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_kgglIJorEeqlnZTAgSa6zA" name="cantSpecializeMoreThanOneUltimateSortal">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_kgkPgJorEeqlnZTAgSa6zA" name="constraintSpec">
+        <language>OCL</language>
+        <body>base_Class.allParents()->select(
+	not oclAsType(Class).extension_EndurantClass.oclAsType(UltimateSortal).oclIsInvalid()
+)->size()&lt;=1</body>
+      </specification>
+    </ownedRule>
+    <generalization xmi:type="uml:Generalization" xmi:id="_JzhBIJlGEeq7vPF5V6OkQA" general="_6ZjqAJlEEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_6ZjqAJlEEeq7vPF5V6OkQA" name="EndurantClass" isAbstract="true">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_VYlToJnyEeqlnZTAgSa6zA" name="onlyOneOntoUMLStereotype">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_VYmhwJnyEeqlnZTAgSa6zA" name="constraintSpec">
+        <language>OCL</language>
+        <body>base_Class.getAppliedStereotypes()->select(
+	name='kind' or name='relator' or name='mode' or name='quality'
+	or name='phase' or name='role' or name='subkind' or 
+	name='phaseMixin' or name='roleMixin' or name='category' or name='mixin'
+)->size()=1</body>
+      </specification>
+    </ownedRule>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_KWtRoJqiEeqlnZTAgSa6zA" name="base_Class" association="_KWfPMJqiEeqlnZTAgSa6zA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KWtRoZqiEeqlnZTAgSa6zA"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_CPo1cJlFEeq7vPF5V6OkQA" name="NonSortal" isAbstract="true">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_LIxAkJm5Eeq7vPF5V6OkQA" name="nonSortalCantSpecializeSortal">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_LIxnoJm5Eeq7vPF5V6OkQA" name="constraintSpec">
+        <language>OCL</language>
+        <body>not base_Class.allParents()->exists(
+	not oclAsType(Class).extension_EndurantClass.oclAsType(Sortal).oclIsInvalid()
+)</body>
+      </specification>
+    </ownedRule>
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_rMoRwJnREeq7vPF5V6OkQA" name="nonSortalMustHaveSortalSpecialization">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_rMsjMJnREeq7vPF5V6OkQA" name="constraintSpec">
+        <language>OCL</language>
+        <body>-- there is a sortal that has the non-sortal as parent
+Sortal.allInstances()->exists(
+	base_Class.allParents()->includes(self.base_Class))
+or
+-- there is a sortal with a parent x that is also parent of the non-sortal
+Sortal.allInstances()->exists(
+	base_Class.allParents()->exists(x | self.base_Class.allParents()->includes(x))
+	)</body>
+      </specification>
+    </ownedRule>
+    <generalization xmi:type="uml:Generalization" xmi:id="_ML8REJlGEeq7vPF5V6OkQA" general="_6ZjqAJlEEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_FyR1wJlFEeq7vPF5V6OkQA" name="RigidSortal" isAbstract="true">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_KJ_1wJm6Eeq7vPF5V6OkQA" name="rigidSortalCantSpecializeAntiRigid">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_KKBq8Jm6Eeq7vPF5V6OkQA" name="constraintSpec">
+        <language>OCL</language>
+        <body>not base_Class.allParents()->exists(
+	not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidSortal).oclIsInvalid() or 
+	not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidNonSortal).oclIsInvalid()
+)</body>
+      </specification>
+    </ownedRule>
+    <generalization xmi:type="uml:Generalization" xmi:id="_K2qgMJlGEeq7vPF5V6OkQA" general="_oJYwMJlCEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_7yN0IJlGEeq7vPF5V6OkQA" name="relator">
+    <generalization xmi:type="uml:Generalization" xmi:id="_-VUDAJlGEeq7vPF5V6OkQA" general="_BuC5YJlHEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_BuC5YJlHEeq7vPF5V6OkQA" name="UltimateSortal" isAbstract="true">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_gyAAAJlPEeq7vPF5V6OkQA" name="ultimateSortalCantSpecializeAnother" visibility="package">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_gyE4gJlPEeq7vPF5V6OkQA" name="constraintSpec">
+        <language>OCL</language>
+        <body>not base_Class.allParents()->exists(
+	not oclAsType(Class).extension_EndurantClass.oclAsType(UltimateSortal).oclIsInvalid()
+)</body>
+      </specification>
+    </ownedRule>
+    <generalization xmi:type="uml:Generalization" xmi:id="_F5LdEJlHEeq7vPF5V6OkQA" general="_FyR1wJlFEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_M17scJlKEeq7vPF5V6OkQA" name="mode">
+    <generalization xmi:type="uml:Generalization" xmi:id="_Og9D0JlKEeq7vPF5V6OkQA" general="_BuC5YJlHEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_PL-WwJlKEeq7vPF5V6OkQA" name="quality">
+    <generalization xmi:type="uml:Generalization" xmi:id="_RQWpUJlKEeq7vPF5V6OkQA" general="_BuC5YJlHEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_rGeA0JlMEeq7vPF5V6OkQA" name="AntiRigidSortal" isAbstract="true">
+    <generalization xmi:type="uml:Generalization" xmi:id="_sgzQ0JlMEeq7vPF5V6OkQA" general="_oJYwMJlCEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_uCo3AJlMEeq7vPF5V6OkQA" name="role">
+    <generalization xmi:type="uml:Generalization" xmi:id="_vriugJlMEeq7vPF5V6OkQA" general="_rGeA0JlMEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_umzUAJlMEeq7vPF5V6OkQA" name="phase">
+    <generalization xmi:type="uml:Generalization" xmi:id="_wVS2IJlMEeq7vPF5V6OkQA" general="_rGeA0JlMEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_3dSMgJlMEeq7vPF5V6OkQA" name="RigidNonSortal" isAbstract="true">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_LdJfsJm6Eeq7vPF5V6OkQA" name="rigidNonSortalCantSpecializeAntiRigid">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_LdKGwJm6Eeq7vPF5V6OkQA" name="constraintSpec">
+        <language>OCL</language>
+        <body>not base_Class.allParents()->exists(
+	not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidSortal).oclIsInvalid() or 
+	not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidNonSortal).oclIsInvalid()
+)</body>
+      </specification>
+    </ownedRule>
+    <generalization xmi:type="uml:Generalization" xmi:id="_8GsAkJlMEeq7vPF5V6OkQA" general="_CPo1cJlFEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_44C6UJlMEeq7vPF5V6OkQA" name="AntiRigidNonSortal" isAbstract="true">
+    <generalization xmi:type="uml:Generalization" xmi:id="_8mT70JlMEeq7vPF5V6OkQA" general="_CPo1cJlFEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="__d83UJlMEeq7vPF5V6OkQA" name="SemiRigidNonSortal" isAbstract="true">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_NdOhEJm6Eeq7vPF5V6OkQA" name="semiRigidCantSpecializeAntiRigid">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_NdPIIJm6Eeq7vPF5V6OkQA" name="constraintSpec">
+        <language>OCL</language>
+        <body>not base_Class.allParents()->exists(
+	not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidSortal).oclIsInvalid() or
+	not oclAsType(Class).extension_EndurantClass.oclAsType(AntiRigidNonSortal).oclIsInvalid()
+)</body>
+      </specification>
+    </ownedRule>
+    <generalization xmi:type="uml:Generalization" xmi:id="_A9TKMJlNEeq7vPF5V6OkQA" general="_CPo1cJlFEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Iqb1AJlNEeq7vPF5V6OkQA" name="category">
+    <generalization xmi:type="uml:Generalization" xmi:id="_J1suQJlNEeq7vPF5V6OkQA" general="_3dSMgJlMEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_LBt1cJlNEeq7vPF5V6OkQA" name="mixin">
+    <generalization xmi:type="uml:Generalization" xmi:id="_MT52EJlNEeq7vPF5V6OkQA" general="__d83UJlMEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Nhse4JlNEeq7vPF5V6OkQA" name="phaseMixin">
+    <generalization xmi:type="uml:Generalization" xmi:id="_Q4ie4JlNEeq7vPF5V6OkQA" general="_44C6UJlMEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_PLXLYJlNEeq7vPF5V6OkQA" name="roleMixin">
+    <generalization xmi:type="uml:Generalization" xmi:id="_RY1vkJlNEeq7vPF5V6OkQA" general="_44C6UJlMEeq7vPF5V6OkQA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_KWfPMJqiEeqlnZTAgSa6zA" name="E_EndurantClass_Class27" memberEnd="_KWsDgJqiEeqlnZTAgSa6zA _KWtRoJqiEeqlnZTAgSa6zA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_KWsDgJqiEeqlnZTAgSa6zA" name="extension_EndurantClass" type="_6ZjqAJlEEeq7vPF5V6OkQA" aggregation="composite" association="_KWfPMJqiEeqlnZTAgSa6zA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KqGHsJqiEeqlnZTAgSa6zA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Profile>

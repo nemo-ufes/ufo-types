@@ -3,7 +3,7 @@
 % Contributions from Giancarlo Guizzardi, Claudenir M. Fonseca, Daniele Porello, 
 % Tiago Prince Sales, Alessander B. Benevides
 
-% Use theorem provers at http://www.cs.miami.edu/~tptp/cgi-bin/SystemOnTPTP
+% Use theorem provers at http://www.tptp.org/cgi-bin/SystemOnTPTP
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Concerning instantiation and specialization
 
