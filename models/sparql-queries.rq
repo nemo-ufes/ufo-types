@@ -1,0 +1,126 @@
+PREFIX gufo: <http://purl.org/nemo/gufo#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Constraint 1 - TESTED
+# Every specialization of endurant instantiates a single endurant type
+
+# Example: House iof Category and Kind while spec FunctionalComplex
+select ?type
+where {
+    {
+        select ?type (count(?type) as ?n)
+        where {
+            { ?type rdf:type gufo:Category . }
+            union { ?type rdf:type gufo:RoleMixin . }
+            union { ?type rdf:type gufo:PhaseMixin . }
+            union { ?type rdf:type gufo:Mixin . }
+            union { ?type rdf:type gufo:Kind . }
+            union { ?type rdf:type gufo:SubKind . }
+            union { ?type rdf:type gufo:Role . }
+            union { ?type rdf:type gufo:Phase . }
+        }
+        group by ?type
+    }
+    filter (?n > 1)
+}
+
+# Example: Meeting spec Relator and Quality while iof Kind
+select ?type
+where {
+    {
+        select ?type (count(?type) as ?n)
+        where {
+            { ?type rdfs:subClassOf gufo:Object . }
+            union { ?type rdfs:subClassOf gufo:Relator . }
+            union { ?type rdfs:subClassOf gufo:Quality . }
+            union { ?type rdfs:subClassOf gufo:ExtrinsicMode . }
+            union { ?type rdfs:subClassOf gufo:IntrinsicMode . }
+        }
+        group by ?type
+    }
+    filter (?n > 1)
+}
+
+# Constraint 2 - TESTED
+# Sortals must specialize a ultimate sortal
+# Examples Commercial_Organization iof Subkind and Contractor iof Role
+select distinct ?sortal where {
+    { ?sortal rdf:type gufo:SubKind . }
+    union { ?sortal rdf:type gufo:Phase . }
+    union { ?sortal rdf:type gufo:Role . }
+    filter not exists {
+        ?sortal rdfs:subClassOf* ?ultimateSortal . 
+        ?ultimateSortal rdf:type gufo:Kind .
+    }
+}
+
+# Constraint 3 - TESTED
+# Ultimate sortals cannot specialize other ultimate sortals
+# Example Person spec Organization
+select distinct ?ultimateSortal where {
+    ?ultimateSortal rdf:type gufo:Kind .
+    filter exists {
+        ?ultimateSortal rdfs:subClassOf+/rdf:type gufo:Kind .
+    }
+}
+
+# Constraint 4 - TESTED
+# Sortals cannot specialize multiple ultimate sortals
+# Example Client spec Organization and Person
+select ?sortal ?n where {
+    {
+        select ?sortal (count(?sortal) as ?n)
+        where {
+            { ?sortal rdf:type gufo:SubKind . }
+            union { ?sortal rdf:type gufo:Phase . }
+            union { ?sortal rdf:type gufo:Role . }
+            ?sortal rdfs:subClassOf+ ?ultimateSortal .
+            ?ultimateSortal rdf:type gufo:Kind .
+        }
+        group by ?sortal
+    }
+    filter(?n > 1)
+}
+
+# Constraints 5 and 6 - TESTED
+# Rigid and semi-rigid types cannot specialize anti-rigid types
+# Examples Legally_Recognized_Conjugal_Relationship spec Long-Term_Agreement and Agent spec Customer
+select distinct ?type
+where {
+    { ?type rdf:type/rdfs:subClassOf* gufo:RigidType . }
+    union { ?type rdf:type/rdfs:subClassOf* gufo:SemiRigidType . }
+    ?type rdfs:subClassOf+ ?antiRigidType .
+    ?antiRigidType rdf:type/rdfs:subClassOf* gufo:AntiRigidType .
+}
+
+# Constraint 7 - TESTED
+# Non-sortal types cannot specialize sortal types
+# Example Agent spec Organization and Person
+select distinct ?nonSortal
+where {
+    ?nonSortal rdf:type/rdfs:subClassOf* gufo:NonSortal .
+    ?nonSortal rdfs:subClassOf+ ?sortal .
+    ?sortal rdf:type/rdfs:subClassOf* gufo:Sortal .
+}
+
+# Constraint 8 - TESTED
+# Non-sortal types must be specialized by sortal types or share a common supertype to a sortal type
+# Examples Legally_Recognized_Conjugal_Relationship and Long-Term_Agreement
+select distinct ?nonSortal
+where {
+    ?nonSortal rdf:type/rdfs:subClassOf* gufo:NonSortal .
+    filter not exists {
+        { 
+            ?sortal rdf:type/rdfs:subClassOf* gufo:Sortal .
+            ?sortal rdfs:subClassOf* ?nonSortal .
+        }
+        union
+        {
+            ?otherNonSortal rdf:type/rdfs:subClassOf* gufo:NonSortal .
+            ?sortal rdf:type/rdfs:subClassOf* gufo:Sortal .
+            ?sortal rdfs:subClassOf+ ?otherNonSortal .
+            ?nonSortal rdfs:subClassOf+ ?otherNonSortal .
+        }
+    }
+}

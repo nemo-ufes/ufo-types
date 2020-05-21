@@ -1,0 +1,781 @@
+@prefix : <http://example.com#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<http://example.com> rdf:type owl:Ontology;
+    owl:imports gufo:.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:VideoObject :AudioObject :Person :Organization :SnowparkFeature :ImageObject :MountainArea :Lift :Trail :EventSeries).
+:Snowpark rdf:type owl:Class, owl:NamedIndividual.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Organization :Person).
+:mediatesPlace rdf:type owl:ObjectProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:range :Place;
+    rdfs:comment "Relation URI was automatically generated.".
+:SnowMeasurement rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :mediatesPlace;
+  owl:someValuesFrom :Place
+].
+:mediatesPlace rdfs:subPropertyOf gufo:mediates.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:EventPlan :SnowMeasurement).
+:Snowpark rdfs:subClassOf :Trail.
+:Agent owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:Organization :Person)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Geometry :Difficulty).
+:Snowpark rdf:type gufo:SubKind.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:AudioObject :ImageObject :VideoObject).
+:Snowpark rdfs:label "Snowpark".
+[ rdf:type owl:AllDisjointClasses ] owl:members (:CompositeArea :Simplearea).
+:described rdf:type owl:ObjectProperty;
+    rdfs:domain :MediaObject;
+    rdfs:range :NamedIndividual;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdfs:subPropertyOf gufo:historicallyDependsOn.
+:MountainArea owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:CompositeArea :Simplearea)
+].
+:Geometry rdf:type owl:Class, owl:NamedIndividual.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Lift :MountainArea :Trail).
+:Geometry rdfs:subClassOf gufo:Quality.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Ongoing :Realized :Rescheduled :Scheduled).
+:isComponentOfMountainArea rdf:type owl:ObjectProperty;
+    rdfs:domain :Trail;
+    rdfs:range :MountainArea;
+    rdfs:subPropertyOf gufo:isObjectProperPartOf;
+    rdfs:comment "Relation URI was automatically generated.".
+:Trail rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :isComponentOfMountainArea;
+  owl:someValuesFrom :MountainArea
+].
+:MountainArea rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :isComponentOfMountainArea ];
+  owl:someValuesFrom :Trail
+].
+:isComponentOfMountainArea rdfs:subPropertyOf gufo:isComponentOf.
+:Geometry rdf:type gufo:Kind.
+:Published owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:Ongoing :Realized :Rescheduled :Scheduled)
+].
+:coordinates rdfs:label "coordinates".
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Closed :Open :PermanentlyClosed).
+:Place owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:Closed :Open :PermanentlyClosed)
+].
+:connections rdf:type owl:ObjectProperty;
+    rdfs:domain :Place;
+    rdfs:range :Place;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdf:type gufo:MaterialRelationshipType.
+:coordinates rdf:type owl:ObjectProperty;
+    rdfs:domain :Geometry;
+    rdfs:range :Coordinate;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:SkiSlope :Snowpark).
+[ rdf:type owl:AllDisjointClasses ] owl:members (:CompositeEvent :SimpleEvent).
+:Geometry rdfs:label "Geometry".
+:EventPlan owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:CompositeEvent :SimpleEvent)
+].
+:isComponentOfSnowpark rdf:type owl:ObjectProperty;
+    rdfs:domain :SnowparkFeature;
+    rdfs:range :Snowpark;
+    rdfs:comment "Relation URI was automatically generated.".
+:SnowparkFeature rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :isComponentOfSnowpark;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Snowpark
+].
+:isComponentOfSnowpark rdfs:subPropertyOf gufo:isComponentOf.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:LineString :MultiLineString :Multipoint :Multipolygon :Point :Polygon).
+:Polygon rdf:type owl:Class, owl:NamedIndividual.
+:Geometry owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:LineString :MultiLineString :Multipoint :Multipolygon :Point :Polygon)
+].
+:Polygon rdfs:subClassOf :Geometry.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Cancelled :Published).
+:primarysurface rdf:type owl:ObjectProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:range :Snow;
+    rdfs:comment "Relation URI was automatically generated.".
+:SnowMeasurement rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :primarysurface;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Snow
+].
+:primarysurface rdfs:subPropertyOf gufo:mediates.
+:Polygon rdf:type gufo:SubKind.
+:EventPlan owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:Cancelled :Published)
+].
+:Polygon rdfs:label "Polygon".
+:inheresInGeospatialFeature rdf:type owl:ObjectProperty;
+    rdfs:domain :Geometry;
+    rdfs:range :GeospatialFeature;
+    rdfs:comment "Relation URI was automatically generated.".
+:Geometry rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :inheresInGeospatialFeature;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :GeospatialFeature
+].
+:GeospatialFeature rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :inheresInGeospatialFeature ];
+  owl:someValuesFrom :Geometry
+].
+:inheresInGeospatialFeature rdfs:subPropertyOf gufo:inheresIn.
+:Int rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "int".
+:organizers rdf:type owl:ObjectProperty;
+    rdfs:domain :EventPlan;
+    rdfs:range :Organizer;
+    rdfs:comment "Relation URI was automatically generated.".
+:EventPlan rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :organizers;
+  owl:someValuesFrom :Organizer
+].
+:Organizer rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :organizers ];
+  owl:someValuesFrom :EventPlan
+].
+:organizers rdfs:subPropertyOf gufo:mediates.
+:VideoObject rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :MediaObject.
+:contributors rdf:type owl:ObjectProperty;
+    rdfs:domain :EventPlan;
+    rdfs:range :Contributor;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdf:type gufo:MaterialRelationshipType.
+:VideoObject rdf:type gufo:Kind.
+:height rdfs:label "height".
+:isComponentOfMountainArea_LAPKRaGAqACCBJs rdf:type owl:ObjectProperty;
+    rdfs:domain :Lift;
+    rdfs:range :MountainArea;
+    rdfs:subPropertyOf gufo:isObjectProperPartOf;
+    rdfs:comment "Relation URI was automatically generated.".
+:Lift rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :isComponentOfMountainArea_LAPKRaGAqACCBJs;
+  owl:someValuesFrom :MountainArea
+].
+:MountainArea rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :isComponentOfMountainArea_LAPKRaGAqACCBJs ];
+  owl:someValuesFrom :Lift
+].
+:isComponentOfMountainArea_LAPKRaGAqACCBJs rdfs:subPropertyOf gufo:isComponentOf.
+:duration rdfs:label "duration".
+:width rdfs:label "width".
+:venues rdf:type owl:ObjectProperty;
+    rdfs:domain :EventPlan;
+    rdfs:range :Venue;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdf:type gufo:MaterialRelationshipType.
+:height rdf:type owl:DatatypeProperty;
+    rdfs:domain :VideoObject;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:duration rdf:type owl:DatatypeProperty;
+    rdfs:domain :VideoObject;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+:width rdf:type owl:DatatypeProperty;
+    rdfs:domain :VideoObject;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:inheresInTrail rdf:type owl:ObjectProperty;
+    rdfs:domain :Difficulty;
+    rdfs:range :Trail;
+    rdfs:comment "Relation URI was automatically generated.".
+:Difficulty rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :inheresInTrail;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trail
+].
+:Trail rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :inheresInTrail ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Difficulty
+].
+:inheresInTrail rdfs:subPropertyOf gufo:inheresIn.
+:VideoObject rdfs:label "Video Object".
+:EventPlan rdf:type owl:Class, owl:NamedIndividual.
+:isComponentOfCompositeArea rdf:type owl:ObjectProperty;
+    rdfs:domain :MountainArea;
+    rdfs:range :CompositeArea;
+    rdfs:comment "Relation URI was automatically generated.".
+:MountainArea rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :isComponentOfCompositeArea;
+  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :CompositeArea
+].
+:CompositeArea rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :isComponentOfCompositeArea ];
+  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger;
+  owl:onClass :MountainArea
+].
+:isComponentOfCompositeArea rdfs:subPropertyOf gufo:isComponentOf.
+:EventPlan rdfs:subClassOf :NamedIndividual, gufo:Relator;
+    rdf:type gufo:Kind.
+:secondarysurface rdf:type owl:ObjectProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:range :Snow;
+    rdfs:comment "Relation URI was automatically generated.".
+:SnowMeasurement rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :secondarysurface;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Snow
+].
+:secondarysurface rdfs:subPropertyOf gufo:mediates.
+:startDate rdfs:label "startDate".
+:capacity rdfs:label "capacity".
+:measuredby rdf:type owl:ObjectProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:range :Agent;
+    rdfs:comment "Relation URI was automatically generated.".
+:SnowMeasurement rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :measuredby;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Agent
+].
+:measuredby rdfs:subPropertyOf gufo:mediates.
+:endDate rdfs:label "endDate".
+:SnowparkFeatureType gufo:categorizes :SnowparkFeature.
+:startDate rdf:type owl:DatatypeProperty;
+    rdfs:domain :EventPlan;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+:capacity rdf:type owl:DatatypeProperty;
+    rdfs:domain :EventPlan;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:endDate rdf:type owl:DatatypeProperty;
+    rdfs:domain :EventPlan;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+:EventPlan rdfs:label "Event Plan".
+:areaowner rdf:type owl:ObjectProperty;
+    rdfs:domain :MountainArea;
+    rdfs:range :AreaOwner;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdf:type gufo:MaterialRelationshipType.
+:Multipolygon rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Geometry.
+:sponsors rdf:type owl:ObjectProperty;
+    rdfs:domain :EventPlan;
+    rdfs:range :Sponsor;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdf:type gufo:MaterialRelationshipType.
+:Multipolygon rdf:type gufo:SubKind;
+    rdfs:label "Multi-Polygon".
+:LiftType gufo:categorizes :Lift.
+:Contributor rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Agent;
+    rdf:type gufo:RoleMixin.
+:publisher rdf:type owl:ObjectProperty;
+    rdfs:domain :EventPlan;
+    rdfs:range :Publisher;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdf:type gufo:MaterialRelationshipType.
+:Contributor rdfs:label "Contributor".
+:Publisher rdf:type owl:Class, owl:NamedIndividual.
+:license rdf:type owl:ObjectProperty;
+    rdfs:domain :MediaObject;
+    rdfs:range :LicenseType;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdf:type gufo:MaterialRelationshipType.
+:Publisher rdfs:subClassOf :Agent;
+    rdf:type gufo:RoleMixin;
+    rdfs:label "Publisher".
+:TrailType gufo:categorizes :Trail.
+:Difficulty rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality.
+:isProperPartOfCompositeEvent rdf:type owl:ObjectProperty;
+    rdfs:domain :EventPlan;
+    rdfs:range :CompositeEvent;
+    rdfs:subPropertyOf gufo:isProperPartOf;
+    rdfs:comment "Relation URI was automatically generated.".
+:CompositeEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :isProperPartOfCompositeEvent ];
+  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger;
+  owl:onClass :EventPlan
+].
+:Difficulty rdf:type gufo:Kind;
+    rdfs:label "Difficulty".
+:eventseries rdf:type owl:ObjectProperty;
+    rdfs:domain :EventPlan;
+    rdfs:range :EventSeries;
+    rdfs:comment "Relation URI was automatically generated.".
+:EventPlan rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :eventseries;
+  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :EventSeries
+].
+:eventseries rdfs:subPropertyOf gufo:mediates.
+:SimpleEvent rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :EventPlan;
+    rdf:type gufo:SubKind.
+:copyrightowner rdf:type owl:ObjectProperty;
+    rdfs:domain :MediaObject;
+    rdfs:range :CopyrightOwner;
+    rdfs:comment "Relation URI was automatically generated.";
+    rdf:type gufo:MaterialRelationshipType.
+:SimpleEvent rdfs:label "Simple Event".
+:Time rdfs:subClassOf gufo:QualityValue.
+:MediaObjectType gufo:categorizes :MediaObject.
+:Time rdfs:label "Time".
+:EventType gufo:categorizes :EventPlan.
+:SkiSlope rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Trail;
+    rdf:type gufo:SubKind.
+:MountainAreaType gufo:categorizes :MountainArea.
+:SkiSlope rdfs:label "Ski Slope".
+:Rescheduled rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Published;
+    rdf:type gufo:Phase;
+    rdfs:label "Rescheduled".
+:LineString rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Geometry;
+    rdf:type gufo:SubKind;
+    rdfs:label "Line String".
+:AudioObject rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :MediaObject;
+    rdf:type gufo:Kind.
+:duration_8U5Seg6AUB20txkh rdfs:label "duration";
+    rdf:type owl:DatatypeProperty;
+    rdfs:domain :AudioObject;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+:AudioObject rdfs:label "Audio Object".
+:Short rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "short".
+:EventType rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Event Type".
+:CompositeEvent rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :EventPlan;
+    rdf:type gufo:SubKind;
+    rdfs:label "Composite Event".
+:Organizer rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Agent;
+    rdf:type gufo:RoleMixin;
+    rdfs:label "Organizer".
+:HoursSpecification rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue.
+:dayofweek rdfs:label "day of week".
+:validto rdfs:label "valid to".
+:validfrom rdfs:label "valid from".
+:closes rdfs:label "closes".
+:opens rdfs:label "opens".
+:dayofweek rdf:type owl:DatatypeProperty;
+    rdfs:domain :HoursSpecification.
+:validto rdf:type owl:DatatypeProperty;
+    rdfs:domain :HoursSpecification.
+:validfrom rdf:type owl:DatatypeProperty;
+    rdfs:domain :HoursSpecification.
+:closes rdf:type owl:DatatypeProperty;
+    rdfs:domain :HoursSpecification.
+:opens rdf:type owl:DatatypeProperty;
+    rdfs:domain :HoursSpecification.
+:HoursSpecification rdfs:label "Hours Specification".
+:Place rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :NamedIndividual, :GeospatialFeature, gufo:FunctionalComplex;
+    rdf:type gufo:Category.
+:openingHours rdfs:label "openingHours".
+:address rdfs:label "address".
+:howToArrive rdfs:label "howToArrive".
+:openingHours rdf:type owl:ObjectProperty;
+    rdfs:domain :Place;
+    rdfs:range :HoursSpecification;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue.
+:address rdf:type owl:ObjectProperty;
+    rdfs:domain :Place;
+    rdfs:range :Address;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue.
+:howToArrive rdf:type owl:DatatypeProperty;
+    rdfs:domain :Place;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:string.
+:Place rdfs:label "Place".
+:GeospatialFeature rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Endurant;
+    rdf:type gufo:Category.
+:minAltitude rdfs:label "minAltitude".
+:maxAltitude rdfs:label "maxAltitude".
+:length rdfs:label "length".
+:area rdfs:label "area".
+:minAltitude rdf:type owl:DatatypeProperty;
+    rdfs:domain :GeospatialFeature;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:maxAltitude rdf:type owl:DatatypeProperty;
+    rdfs:domain :GeospatialFeature;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:length rdf:type owl:DatatypeProperty;
+    rdfs:domain :GeospatialFeature;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:area rdf:type owl:DatatypeProperty;
+    rdfs:domain :GeospatialFeature;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:GeospatialFeature rdfs:label "Geospatial Feature".
+:Boolean rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "boolean".
+:Simplearea rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :MountainArea;
+    rdf:type gufo:SubKind;
+    rdfs:label "SimpleArea".
+:Range rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue.
+:upper rdfs:label "upper".
+:lower rdfs:label "lower".
+:upper rdf:type owl:DatatypeProperty;
+    rdfs:domain :Range;
+    rdfs:range xsd:int.
+:lower rdf:type owl:DatatypeProperty;
+    rdfs:domain :Range;
+    rdfs:range xsd:int.
+:Range rdfs:label "Range".
+:Person rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Agent;
+    rdf:type gufo:Kind;
+    rdfs:label "Person".
+:SnowparkFeatureType rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Snowpark Feature Type".
+:Byte rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "byte".
+:Agent rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :NamedIndividual, gufo:FunctionalComplex;
+    rdf:type gufo:Category.
+:contactPoints rdfs:label "contactPoints";
+    rdf:type owl:ObjectProperty;
+    rdfs:domain :Agent;
+    rdfs:range :ContactPoint;
+    rdfs:subPropertyOf gufo:hasReifiedQualityValue.
+:Agent rdfs:label "Agent".
+:EuDifficulty rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "EU Difficulty".
+:Organization rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Agent;
+    rdf:type gufo:Kind;
+    rdfs:label "Organization".
+:TimeInstant rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "Time Instant".
+:Coordinate rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue.
+:latitude rdfs:label "latitude".
+:longitude rdfs:label "longitude".
+:elevation rdfs:label "elevation".
+:latitude rdf:type owl:DatatypeProperty;
+    rdfs:domain :Coordinate;
+    rdfs:range xsd:float.
+:longitude rdf:type owl:DatatypeProperty;
+    rdfs:domain :Coordinate;
+    rdfs:range xsd:float.
+:elevation rdf:type owl:DatatypeProperty;
+    rdfs:domain :Coordinate;
+    rdfs:range xsd:float.
+:Coordinate rdfs:label "Coordinate".
+:MediaObjectType rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Media Object Type".
+:PermanentlyClosed rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Place;
+    rdf:type gufo:PhaseMixin;
+    rdfs:label "Permanently Closed".
+:SnowparkFeature rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :NamedIndividual, :GeospatialFeature, gufo:FunctionalComplex;
+    rdf:type gufo:Kind;
+    rdfs:label "Snowpark Feature".
+:SnowparkDifficulty rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "Snowpark Difficulty".
+:MultiLineString rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Geometry;
+    rdf:type gufo:SubKind;
+    rdfs:label "Multi Line String".
+:Char rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "char".
+:ImageObject rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :MediaObject;
+    rdf:type gufo:Kind.
+:width_gp62MFaAUB22dhlz rdfs:label "width".
+:height_BTa2MFaAUB22dhlw rdfs:label "height".
+:width_gp62MFaAUB22dhlz rdf:type owl:DatatypeProperty;
+    rdfs:domain :ImageObject;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:height_BTa2MFaAUB22dhlw rdf:type owl:DatatypeProperty;
+    rdfs:domain :ImageObject;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:ImageObject rdfs:label "Image Object".
+:TimeInterval rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "Time Interval".
+:Multipoint rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Geometry;
+    rdf:type gufo:SubKind;
+    rdfs:label "Multi-Point".
+:Double rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "double".
+:Published rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :EventPlan;
+    rdf:type gufo:Phase;
+    rdfs:label "Published".
+:Frequency rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "Frequency".
+:NamedIndividual rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf owl:Thing;
+    rdf:type gufo:Category.
+:url rdfs:label "url".
+:description rdfs:label "description".
+:name rdfs:label "name".
+:abstract rdfs:label "abstract".
+:shortName rdfs:label "shortName".
+:url rdf:type owl:DatatypeProperty;
+    rdfs:domain :NamedIndividual;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:string.
+:description rdf:type owl:DatatypeProperty;
+    rdfs:domain :NamedIndividual;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:string.
+:name rdf:type owl:DatatypeProperty;
+    rdfs:domain :NamedIndividual;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:string.
+:abstract rdf:type owl:DatatypeProperty;
+    rdfs:domain :NamedIndividual;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:string.
+:shortName rdf:type owl:DatatypeProperty;
+    rdfs:domain :NamedIndividual;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:string.
+:NamedIndividual rdfs:label "Named Individual".
+:Closed rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Place;
+    rdf:type gufo:PhaseMixin;
+    rdfs:label "Closed".
+:CopyrightOwner rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Agent;
+    rdf:type gufo:RoleMixin;
+    rdfs:label "Copyright Owner".
+:Point rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Geometry;
+    rdf:type gufo:SubKind;
+    rdfs:label "Point".
+:Long rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "long".
+:DayOfWeek rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "Day of Week".
+:UsDifficulty rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "US Difficulty".
+:Cancelled rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :EventPlan;
+    rdf:type gufo:Phase;
+    rdfs:label "Cancelled".
+:MediaType rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "Media Type".
+:String rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "string".
+:Ongoing rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Published;
+    rdf:type gufo:Phase;
+    rdfs:label "Ongoing".
+:MountainArea rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Place;
+    rdf:type gufo:Kind;
+    rdfs:label "Mountain Area".
+:Scheduled rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Published;
+    rdf:type gufo:Phase;
+    rdfs:label "Scheduled".
+:Lift rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Place;
+    rdf:type gufo:Kind.
+:capacity_zoRKWRaGAqCsICo3 rdfs:label "capacity".
+:personsPerChair rdfs:label "personsPerChair".
+:capacity_zoRKWRaGAqCsICo3 rdf:type owl:DatatypeProperty;
+    rdfs:domain :Lift;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:personsPerChair rdf:type owl:DatatypeProperty;
+    rdfs:domain :Lift;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:Lift rdfs:label "Lift".
+:Void rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "void".
+:ContactPoint rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue.
+:availableHours rdfs:label "availableHours".
+:email rdfs:label "email".
+:telephone rdfs:label "telephone".
+:address_n8DOg6AUB20tyfy rdfs:label "address".
+:availableHours rdf:type owl:ObjectProperty;
+    rdfs:domain :ContactPoint;
+    rdfs:range :HoursSpecification.
+:email rdf:type owl:DatatypeProperty;
+    rdfs:domain :ContactPoint;
+    rdfs:range xsd:string.
+:telephone rdf:type owl:DatatypeProperty;
+    rdfs:domain :ContactPoint;
+    rdfs:range xsd:string.
+:address_n8DOg6AUB20tyfy rdf:type owl:ObjectProperty;
+    rdfs:domain :ContactPoint;
+    rdfs:range :Address.
+:ContactPoint rdfs:label "Contact Point".
+:LicenseType rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "License Type".
+:Snow rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quantity;
+    rdf:type gufo:Kind;
+    rdfs:label "Snow".
+:LiftType rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Lift Type".
+:MediaObject rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :NamedIndividual, gufo:FunctionalComplex;
+    rdf:type gufo:Category.
+:contentType rdfs:label "contentType";
+    rdf:type owl:DatatypeProperty;
+    rdfs:domain :MediaObject;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+:MediaObject rdfs:label "Media Object".
+:MountainAreaType rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Mountain Area Type".
+:Sponsor rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Agent;
+    rdf:type gufo:RoleMixin;
+    rdfs:label "Sponsor".
+:CompositeArea rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :MountainArea;
+    rdf:type gufo:SubKind;
+    rdfs:label "Composite Area".
+:Venue rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Place;
+    rdf:type gufo:RoleMixin;
+    rdfs:label "Venue".
+:Trail rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Place;
+    rdf:type gufo:Kind;
+    rdfs:label "Trail".
+:Realized rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Published;
+    rdf:type gufo:Phase;
+    rdfs:label "Realized".
+:EventSeries rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :NamedIndividual, gufo:FunctionalComplex;
+    rdf:type gufo:Kind.
+:frequency rdfs:label "frequency";
+    rdf:type owl:DatatypeProperty;
+    rdfs:domain :EventSeries;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+:EventSeries rdfs:label "Event Series".
+:Open rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Place;
+    rdf:type gufo:PhaseMixin;
+    rdfs:label "Open".
+:Float rdfs:subClassOf gufo:QualityValue;
+    rdfs:label "float".
+:Address rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:QualityValue.
+:region rdfs:label "region".
+:city rdfs:label "city".
+:category rdfs:label "category".
+:country rdfs:label "country".
+:complement rdfs:label "complement".
+:street rdfs:label "street".
+:zipcode rdfs:label "zipcode".
+:region rdf:type owl:DatatypeProperty;
+    rdfs:domain :Address;
+    rdfs:range xsd:string.
+:city rdf:type owl:DatatypeProperty;
+    rdfs:domain :Address;
+    rdfs:range xsd:string.
+:category rdf:type owl:DatatypeProperty;
+    rdfs:domain :Address;
+    rdfs:range xsd:string.
+:country rdf:type owl:DatatypeProperty;
+    rdfs:domain :Address;
+    rdfs:range xsd:string.
+:complement rdf:type owl:DatatypeProperty;
+    rdfs:domain :Address;
+    rdfs:range xsd:string.
+:street rdf:type owl:DatatypeProperty;
+    rdfs:domain :Address;
+    rdfs:range xsd:string.
+:zipcode rdf:type owl:DatatypeProperty;
+    rdfs:domain :Address;
+    rdfs:range xsd:string.
+:Address rdfs:label "Address".
+:SnowMeasurement rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :GeospatialFeature, gufo:Relator;
+    rdf:type gufo:Kind.
+:stormTotal rdfs:label "stormTotal".
+:obtainedIn rdfs:label "obtainedIn".
+:snowOverNight rdfs:label "snowOverNight".
+:groomed rdfs:label "groomed".
+:baseSnowRange rdfs:label "baseSnowRange".
+:baseSnow rdfs:label "baseSnow".
+:snowMaking rdfs:label "snowMaking".
+:stormTotal rdf:type owl:DatatypeProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:obtainedIn rdf:type owl:DatatypeProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+:snowOverNight rdf:type owl:DatatypeProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:groomed rdf:type owl:DatatypeProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:boolean.
+:baseSnowRange rdf:type owl:DatatypeProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:subPropertyOf gufo:hasQualityValue.
+:baseSnow rdf:type owl:DatatypeProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:int.
+:snowMaking rdf:type owl:DatatypeProperty;
+    rdfs:domain :SnowMeasurement;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:range xsd:boolean.
+:SnowMeasurement rdfs:label "Snow Measurement".
+:TrailType rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Trail Type".
+:AreaOwner rdf:type owl:Class, owl:NamedIndividual;
+    rdfs:subClassOf :Agent;
+    rdf:type gufo:RoleMixin;
+    rdfs:label "Area Owner".
